@@ -1,0 +1,21 @@
+syntax = "proto3";
+option go_package = "github.com/my-epoch/api-gateway";
+package api_service;
+
+import "google/api/annotations.proto";
+
+service Api {
+  rpc Status (StatusRequest) returns (StatusResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/status"
+      body: "*"
+    };
+  }
+}
+
+message StatusRequest {}
+
+message StatusResponse {
+  string Status = 1;
+  string Time = 2;
+}
