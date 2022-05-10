@@ -1,0 +1,38 @@
+syntax = "proto3";
+option go_package = "github.com/my-epoch/api-gateway";
+package object_service;
+
+import "google/api/annotations.proto";
+
+
+message ObjectShort {
+  int32 Id = 1;
+  string Title = 2;
+  string PhotoUrl = 3;
+  string ShortDescription = 4;
+}
+
+service ObjectService {
+  rpc GetAll (GetAllRequest) returns (GetAllResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/objects"
+    };
+  };
+  rpc Search (SearchRequest) returns (SearchResponse);
+}
+
+message GetAllRequest {
+
+}
+
+message GetAllResponse {
+  repeated ObjectShort Objects = 1;
+}
+
+message  SearchRequest {
+  string Query = 1;
+}
+
+message SearchResponse {
+  repeated ObjectShort Objects = 1;
+}
