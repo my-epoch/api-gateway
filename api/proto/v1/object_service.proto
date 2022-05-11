@@ -18,7 +18,11 @@ service ObjectService {
       get: "/api/v1/objects"
     };
   };
-  rpc Search (SearchRequest) returns (SearchResponse);
+  rpc Search (SearchRequest) returns (SearchResponse)  {
+    option (google.api.http) = {
+      get: "/api/v1/objects/search"
+    };
+  };
 }
 
 message GetAllRequest {

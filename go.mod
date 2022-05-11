@@ -1,4 +1,4 @@
-module api-gateway
+module github.com/my-epoch/api-gateway
 
 go 1.18
 
