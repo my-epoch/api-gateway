@@ -4,7 +4,7 @@
 // - protoc             v3.20.1
 // source: api/proto/v1/object_service.proto
 
-package api_gateway
+package service
 
 import (
 	context "context"

@@ -2,11 +2,11 @@
 // source: api/proto/v1/object_service.proto
 
 /*
-Package api_gateway is a reverse proxy.
+Package service is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
-package api_gateway
+package service
 
 import (
 	"context"

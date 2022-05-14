@@ -1,6 +1,7 @@
 syntax = "proto3";
-option go_package = "github.com/my-epoch/api-gateway";
+option go_package = "github.com/my-epoch/api-gateway/gen/go/proto/v1/service";
 package object_service;
+
 
 import "google/api/annotations.proto";
 
