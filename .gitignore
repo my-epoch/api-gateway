@@ -1,4 +1,5 @@
 .idea
+config.yaml
 
 #proto definitions
 google
