@@ -1,9 +1,15 @@
 package main
 
 import (
-	"fmt"
+	"github.com/my-epoch/api-gateway/internal/gateway"
+	"github.com/my-epoch/api-gateway/pkg/consul"
+	"github.com/my-epoch/api-gateway/pkg/logger"
 )
 
 func main() {
-	fmt.Println("Hello world!")
+	logger.Info("initializing")
+	consul.InitClient()
+
+	gateway.Init()
+	gateway.Serve()
 }
