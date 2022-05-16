@@ -11,16 +11,21 @@ import (
 var client *consulApi.Client
 var cfg *service_config.ServiceConfig
 
-func RegisterService(serviceCfg *service_config.ServiceConfig) {
-	if serviceCfg == nil {
-		logger.Fatal("cannot register service: ServiceConfig is nil")
-	}
-	cfg = serviceCfg
+func InitClient() {
 	var err error
 	client, err = consulApi.NewClient(consulApi.DefaultConfig())
 	if err != nil {
 		logger.Fatal("cannot create Consul client: %e", err)
 	}
+}
+
+func RegisterService(serviceCfg *service_config.ServiceConfig) {
+	if serviceCfg == nil {
+		logger.Fatal("cannot register service: ServiceConfig is nil")
+	}
+	cfg = serviceCfg
+
+	InitClient()
 
 	if err := client.Agent().ServiceRegister(
 		&consulApi.AgentServiceRegistration{
