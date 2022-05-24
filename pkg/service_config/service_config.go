@@ -13,6 +13,8 @@ type ServiceConfig struct {
 type CheckConfig struct {
 	Interval string `yaml:"interval"`
 	Timeout  string `yaml:"timeout"`
+	GRPC     string `yaml:"GRPC"`
+	HTTP     string `yaml:"HTTP"`
 }
 
 var serviceConfig *ServiceConfig
