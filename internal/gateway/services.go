@@ -13,7 +13,7 @@ func registerServices(mux *runtime.ServeMux, ctx context.Context, opts []grpc.Di
 }
 
 func registerObjectService(mux *runtime.ServeMux, ctx context.Context, opts []grpc.DialOption) {
-	if err := service.RegisterObjectServiceHandlerFromEndpoint(ctx, mux, "object.service.consul", opts); err != nil {
+	if err := service.RegisterObjectServiceHandlerFromEndpoint(ctx, mux, "object.service.consul:50050", opts); err != nil {
 		logger.Warnf("cannot register object service: %e", err)
 		return
 	}
